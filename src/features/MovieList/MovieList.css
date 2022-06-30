@@ -1,0 +1,34 @@
+.movie-container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 800px;
+}
+
+.status-search {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(170,170,250, 0.9);   
+}
+
+.status-search span {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.found-movies {
+    margin-right: 400px;
+}
+
+ul {
+    list-style:none;
+}
+
+.active {
+    color: red;
+}
