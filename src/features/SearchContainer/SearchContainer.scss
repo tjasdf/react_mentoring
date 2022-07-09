@@ -9,38 +9,38 @@
     box-shadow: 7px -8px 3px 2px rgba(10,20,100,0.2);
 }
 
-.search-input h2 {
-    margin: 10px 0 5px;
-    font-size: 20px;
+.search-input {
+    h2 {
+        margin: 10px 0 5px;
+        font-size: 20px;
+    }
+    input {
+        width: 600px;
+        height: 34px;
+        margin: 5px 0;
+        border: 2px solid white;
+        border-radius: 8px;
+        color: white;
+        background-color: rgba(5,10,90,0.3);
+    }
+    input::placeholder {
+        color: rgba(204, 196, 196, 0.979);
+        font-weight: bold;
+        background: url(img/search.png) no-repeat;
+        background-position: 570px -2px;
+        background-size: 3%;
+    }
 }
 
-.search-input input {
-    width: 600px;
-    height: 34px;
-    margin: 5px 0;
-    border: 2px solid white;
-    border-radius: 8px;
-    color: white;
-    background-color: rgba(5,10,90,0.3);
-}
-
-.search-input input::placeholder {
-    color: rgba(204, 196, 196, 0.979);
-    font-weight: bold;
-    background: url(img/search.png) no-repeat;
-    background-position: 570px -2px;
-    background-size: 3%;
-}
 
 .filter {
     display: flex;
     flex-direction: row;
     margin: 10px 0;
-}
-
-.filter span {
+    span {
     font-weight: bold;
-    font-size: 18px;;
+    font-size: 18px;
+    }
 }
 
 .filter-btn {
@@ -92,22 +92,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(170,170,250, 0.9);   
-}
-
-.status-search span {
-    font-weight: bold;
-    font-size: 16px;
-    margin-left: 10px;
-}
-
-.status-search button {
-    margin-top: 3px;
-    border: none;
-    background: none;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
+    background-color: rgba(170,170,250, 0.9);
+    span {
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    button {
+        margin-top: 3px;
+        border: none;
+        background: none;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }   
 }
 
 .activ-status {

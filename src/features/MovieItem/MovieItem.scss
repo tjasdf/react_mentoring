@@ -1,0 +1,32 @@
+.movie_container {
+    width: 180px;
+    height: 300px;
+    margin-left: 11px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(102, 15, 223);
+    background-color: rgba(10,20,100,0.2);
+    img {
+        width: 100%;
+        height: 240px;
+    }
+    h2 {
+        font-size: 16px;
+        color:rgb(102, 15, 223);
+        margin: 0;
+    }
+    span {
+        font-size: 9px;
+    }
+    p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+}
+
+.movie_container:hover {
+    box-shadow: 4px -3px 2px 1px rgba(10,20,100,0.2);
+    border: 2px solid orangered;
+}
