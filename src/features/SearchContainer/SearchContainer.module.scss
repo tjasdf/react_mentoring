@@ -1,4 +1,4 @@
-.container {
+.root {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,27 +9,27 @@
     box-shadow: 7px -8px 3px 2px rgba(10,20,100,0.2);
 }
 
-.search-input {
-    h2 {
-        margin: 10px 0 5px;
-        font-size: 20px;
-    }
-    input {
-        width: 600px;
-        height: 34px;
-        margin: 5px 0;
-        border: 2px solid white;
-        border-radius: 8px;
-        color: white;
-        background-color: rgba(5,10,90,0.3);
-    }
-    input::placeholder {
-        color: rgba(204, 196, 196, 0.979);
-        font-weight: bold;
-        background: url(img/search.png) no-repeat;
-        background-position: 570px -2px;
-        background-size: 3%;
-    }
+h2 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+input {
+    width: 600px;
+    height: 34px;
+    margin: 5px 0;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(5,10,90,0.3);
+}
+
+input::placeholder {
+    color: rgba(204, 196, 196, 0.979);
+    font-weight: bold;
+    background: url(../../public/search.png) no-repeat;
+    background-position: 570px -2px;
+    background-size: 3%;
 }
 
 
@@ -43,7 +43,7 @@
     }
 }
 
-.filter-btn {
+.filterBtn {
     width: 100px;
     height: 25px;
     margin-left: 10px;
@@ -55,20 +55,20 @@
     background-color: rgba(10,10,80, 0.4);
 }
 
-.filter-btn:hover {
+.filterBtn:hover {
     border: 2px solid white;
 }
 
-.active-filter {
+.active_Filter {
     background-color: white;
     color:rgba(10,10,80, 0.8);
 }
 
-.active-filter:hover {
+.active_Filter:hover {
     border: 2px solid rgba(10,10,80, 0.8);
 }
 
-.search-btn {
+.searchBtn {
     margin-left: 180px;
     width: 150px;
     height: 30px;
@@ -80,38 +80,40 @@
     background-color: rgb(221, 33, 74);
 }
 
-.search-btn:hover {
+.searchBtn:hover {
     background-color: rgba(10,20,100,0.1);
     color:rgb(221, 33, 74);
     border: 2px solid rgb(221, 33, 74);
 }
 
-.status-search {
+.statusSearch {
     width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(170,170,250, 0.9);
-    span {
-        font-weight: bold;
-        font-size: 16px;
-        margin-left: 10px;
-    }
-    button {
-        margin-top: 3px;
-        border: none;
-        background: none;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-    }   
 }
 
-.activ-status {
+span {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+button {
+    margin-top: 3px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}   
+
+.activ_Status {
     color:red;
 }
 
-.found-movies {
+.foundMovies {
     margin-right: 400px;
 }

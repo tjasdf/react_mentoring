@@ -1,33 +1,32 @@
-import {useState} from "react";
-import './SearchContainer.scss';
+import { useState } from 'react';
+import { clsx } from 'clsx';
+import { TMovieItem } from '../../types';
+import styles from './SearchContainer.module.scss';
 
-interface PropsData {
-    data: object[]
-}
 
-export const SearchContainer:React.FC<PropsData> = ({data}) => {
+export const SearchContainer = ({data}: TMovieItem) => {
     const [active, setActive] = useState(true);
     const [release, setRelease] = useState(true);
-    const changeFilter = () => active ? setActive(false):setActive(true);
-    const changeReleaseStatus = () => release ? setRelease(false):setRelease(true); 
+    const toggleFilter = () => setActive(!active);
+    const toggleReleaseStatus = () => setRelease(!release); 
     return (
-        <div className="container"> 
-            <div className='search-input'>
+        <div className={styles.root}> 
+            <div className={styles.searchInput}>
                 <h2>FIND YOUR MOVIE</h2>
                 <input type="text"
                     placeholder="Введите название фильма..."/>
             </div>
-            <div className="filter">
+            <div className={styles.filter}>
                 <span>SEARCH BY</span>
-                <button onClick={changeFilter} className={`filter-btn ${active?'active-filter':''}`}>Title</button>
-                <button onClick={changeFilter} className={`filter-btn ${!active?'active-filter':''}`}>Genre</button>
-                <button className='search-btn'>Search</button>
+                <button onClick={toggleFilter} className={clsx(styles.filterBtn, {[styles.active_Filter]:active})}>Title</button>
+                <button onClick={toggleFilter} className={clsx(styles.filterBtn, {[styles.active_Filter]:!active})}>Genre</button>
+                <button className={styles.searchBtn}>Search</button>
             </div>
-            <div className="status-search">
-                <span className="found-movies">{data.length} movies found</span>
+            <div className={styles.statusSearch}>
+                <span className={styles.foundMovies}>{data.length} movies found</span>
                 <span>Sort by: </span>
-                <button onClick={changeReleaseStatus} className={release?'activ-status':''}>release date</button>
-                <button onClick={changeReleaseStatus} className={!release?'activ-status':''}>rating</button>
+                <button onClick={toggleReleaseStatus} className={clsx({[styles.activ_Status]:release})}>release date</button>
+                <button onClick={toggleReleaseStatus} className={clsx({[styles.activ_Status]:!release})}>rating</button>
             </div>
         </div>
     )

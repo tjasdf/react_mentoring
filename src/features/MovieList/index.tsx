@@ -1,18 +1,16 @@
+import { TMovieItem } from "../../types";
 import {MovieItem} from "../MovieItem";
-import './MovieList.scss'
+import styles from  './MovieList.module.scss'
 
-interface IDataProps {
-    data: object[];
-}
 
-export const MovieList:React.FC<IDataProps> = ({data}) => {
-    const movies = data.map(movie =>{
+export const MovieList = ({data}: TMovieItem) => {
+    const movies = data.map((movie) =>{
         return (
             <MovieItem  {...movie}/>
         )
     })
     return (
-        <div className="root">
+        <div className={styles.root}>
             {movies}
         </div>
     )

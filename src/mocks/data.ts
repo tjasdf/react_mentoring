@@ -1,4 +1,5 @@
-export const data: object[] = [
+
+export const data = [
   {
     "id": 337167,
     "title": "Fifty Shades Freed",
