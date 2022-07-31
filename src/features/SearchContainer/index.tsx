@@ -1,32 +1,62 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { clsx } from 'clsx';
-import { TMovieItem } from '../../types';
 import styles from './SearchContainer.module.scss';
 
+type TSearchContainer = {
+    movieLength: number
+}
 
-export const SearchContainer = ({data}: TMovieItem) => {
-    const [active, setActive] = useState(true);
-    const [release, setRelease] = useState(true);
-    const toggleFilter = () => setActive(!active);
-    const toggleReleaseStatus = () => setRelease(!release); 
+type TState = {
+    active: boolean,
+    release: boolean
+}
+
+type TAction = {
+   type: string
+   payload: {
+    active?: boolean,
+    release?: boolean
+   }
+}
+
+
+function reducer(state: TState, action: TAction) {
+    switch (action.type){
+        case 'active':
+            return {
+                ...state,
+                active: !state.active}
+        case 'release':
+            return {
+                ...state,
+                release: !state.release}
+        default:
+            return state;
+    }
+}
+
+export const SearchContainer = ({movieLength}: TSearchContainer) => {
+    const [state, dispatch] = useReducer(reducer, {active: true, release: true});
+    const getFilterStyles = (status: boolean) =>  clsx(styles.filterButton, {[styles.filter_active]:status});
+    const getStatusStyles = (status: boolean) => clsx(styles.sortButton, {[styles.status_active]:status});
     return (
         <div className={styles.root}> 
             <div className={styles.searchInput}>
-                <h2>FIND YOUR MOVIE</h2>
-                <input type="text"
+                <h2 className={styles.header}>FIND YOUR MOVIE</h2>
+                <input className={styles.input} type="text"
                     placeholder="Введите название фильма..."/>
             </div>
             <div className={styles.filter}>
-                <span>SEARCH BY</span>
-                <button onClick={toggleFilter} className={clsx(styles.filterBtn, {[styles.active_Filter]:active})}>Title</button>
-                <button onClick={toggleFilter} className={clsx(styles.filterBtn, {[styles.active_Filter]:!active})}>Genre</button>
-                <button className={styles.searchBtn}>Search</button>
+                <span className={styles.text}>SEARCH BY</span>
+                <button onClick={()=> dispatch({type: 'active', payload:{active: false}})} className={getFilterStyles(state.active)}>Title</button>
+                <button onClick={()=> dispatch({type: 'active', payload:{active: true}})} className={getFilterStyles(!state.active)}>Genre</button>
+                <button className={styles.searchButton}>Search</button>
             </div>
             <div className={styles.statusSearch}>
-                <span className={styles.foundMovies}>{data.length} movies found</span>
-                <span>Sort by: </span>
-                <button onClick={toggleReleaseStatus} className={clsx({[styles.activ_Status]:release})}>release date</button>
-                <button onClick={toggleReleaseStatus} className={clsx({[styles.activ_Status]:!release})}>rating</button>
+                <span className={styles.foundMovies}>{movieLength} movies found</span>
+                <span className={styles.sort}>Sort by: </span>
+                <button onClick={()=> dispatch({type: 'release', payload:{release: false}})} className={getStatusStyles(state.release)}>release date</button>
+                <button onClick={()=> dispatch({type: 'release', payload:{release: true}})} className={getStatusStyles(!state.release)}>rating</button>
             </div>
         </div>
     )

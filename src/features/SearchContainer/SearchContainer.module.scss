@@ -4,46 +4,55 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 320px;
     color: white;
-    background-color: rgba(10,20,100,0.7);
-    box-shadow: 7px -8px 3px 2px rgba(10,20,100,0.2);
+    background-image: url(../../public/sw.png);
+    background-size: 1000px 400px;
+    box-shadow: 7px -8px 3px 2px rgba(0, 1, 8, 0.2);
 }
 
-h2 {
-    margin: 10px 0 5px;
+.header {
+    margin: 50px 0 5px;
     font-size: 20px;
 }
 
-input {
-    width: 600px;
-    height: 34px;
-    margin: 5px 0;
-    border: 2px solid white;
-    border-radius: 8px;
+.input {
+    width: 800px;
+    height: 32px;
+    margin: 15px 0;
+    border: 2px solid #f32424;
+    border-radius: 10px;
+    font-size: 16px;
     color: white;
-    background-color: rgba(5,10,90,0.3);
+    background-color: rgba(26, 26, 27, 0.3);
+    &:focus { 
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 18px #df6b71;
+    }
+    &::placeholder {
+        color: rgba(156, 153, 153, 0.979);
+        font-weight: bold;
+        background: url(../../public/search.png) no-repeat;
+        background-position: 770px -3.4px;
+        background-size: 2.8%;
+    }   
 }
 
-input::placeholder {
-    color: rgba(204, 196, 196, 0.979);
-    font-weight: bold;
-    background: url(../../public/search.png) no-repeat;
-    background-position: 570px -2px;
-    background-size: 3%;
-}
 
 
 .filter {
     display: flex;
     flex-direction: row;
-    margin: 10px 0;
-    span {
-    font-weight: bold;
-    font-size: 18px;
-    }
+    margin: 20px 0;
 }
 
-.filterBtn {
+.text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.filterButton {
     width: 100px;
     height: 25px;
     margin-left: 10px;
@@ -52,24 +61,27 @@ input::placeholder {
     border:none;
     color: white;
     cursor: pointer;
-    background-color: rgba(10,10,80, 0.4);
+    border: 1px solid white;
+    background: none;
+    &:hover {
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 14px #f0646b;
+    }
 }
 
-.filterBtn:hover {
-    border: 2px solid white;
+.filter_active {
+    color:#e71e1e;
+    border: 1px solid #e71e1e;
+    &:hover {
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 14px #f0646b;
+    }
 }
 
-.active_Filter {
-    background-color: white;
-    color:rgba(10,10,80, 0.8);
-}
-
-.active_Filter:hover {
-    border: 2px solid rgba(10,10,80, 0.8);
-}
-
-.searchBtn {
-    margin-left: 180px;
+.searchButton {
+    margin-left: 240px;
     width: 150px;
     height: 30px;
     border: none;
@@ -77,31 +89,37 @@ input::placeholder {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    background-color: rgb(221, 33, 74);
+    background-color: rgb(238, 24, 24);
+    &:hover {
+        background-color: rgba(10,20,100,0.1);
+        color:rgb(233, 8, 57);
+        outline: none;
+        border: 1px solid;
+        border-color: #e71e1e;
+        box-shadow: 0 0 16px #f0646b;
+    }
 }
 
-.searchBtn:hover {
-    background-color: rgba(10,20,100,0.1);
-    color:rgb(221, 33, 74);
-    border: 2px solid rgb(221, 33, 74);
-}
+
 
 .statusSearch {
+    margin-top: 30px;
     width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(170,170,250, 0.9);
+    background-color: rgba(4, 13, 39, 0.322);
 }
 
-span {
+.sort {
     font-weight: bold;
     font-size: 16px;
     margin-left: 10px;
 }
 
-button {
+.sortButton {
+    color: #faf4f4;
     margin-top: 3px;
     border: none;
     background: none;
@@ -110,10 +128,13 @@ button {
     cursor: pointer;
 }   
 
-.activ_Status {
+.status_active {
     color:red;
 }
 
 .foundMovies {
     margin-right: 400px;
+    font-weight: bold;
+    font-size: 16px;
 }
+

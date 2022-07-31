@@ -1,5 +1,7 @@
+import { TMovieItem } from "../types";
 
-export const data = [
+
+export const data: Array<TMovieItem> = [
   {
     "id": 337167,
     "title": "Fifty Shades Freed",
@@ -28,9 +30,9 @@ export const data = [
     "budget": 200000000,
     "revenue": 1325937250,
     "genres": [
-      "Fantasy",
-      "Adventure",
-      "Science Fiction"
+      'Fantasy',
+      'Adventure',
+      'Science Fiction'
     ]
   },
   {

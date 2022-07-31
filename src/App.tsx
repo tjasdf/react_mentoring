@@ -8,9 +8,9 @@ import styles from './App.module.scss';
 function App() {
   return (
     <div className={styles.root}>
-      <SearchContainer data={data} />
-      <MovieList data={data} />
-      <MovieItemPage data={data}/>
+      <SearchContainer movieLength={data.length} />
+      <MovieList movies={data} />
+      {/*<MovieItemPage movie={data[0]}/>*/}
     </div>
   );
 }

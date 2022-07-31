@@ -1,16 +1,20 @@
 import { TMovieItem } from "../../types"
 
+type TMovie = {
+    movie: TMovieItem
+}
 
-export const MovieItemPage = ({data}: TMovieItem) => {
+export const MovieItemPage = ({movie}: TMovie) => {
+    const {title, tagline, poster_path, release_date, overview, budget} = movie;
     return (
         <div>
             <div>
-                <h2>{data[0].title}</h2>
-                <h3>{data[0].tagline}</h3>
-                <img src={data[0].poster_path} alt={data[0].title} />
-                <p>Release date: {data[0].release_date}</p>
-                <p>{data[0].overview}</p>
-                <p>Budget: {data[0].budget}</p>
+                <h2>{title}</h2>
+                <h3>{tagline}</h3>
+                <img src={poster_path} alt={title} />
+                <p>Release date: {release_date}</p>
+                <p>{overview}</p>
+                <p>Budget: {budget}</p>
             </div>
         </div>    
     )
