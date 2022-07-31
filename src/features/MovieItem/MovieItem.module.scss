@@ -1,0 +1,85 @@
+
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 280px;
+    margin-left: 25px;
+    margin-top: 15px;
+    cursor: pointer;
+    color: black;
+}
+
+.picture {
+    width: 170px;
+    height: 240px;
+    border-radius: 10px;
+    &:hover {
+        outline: none;
+        border: 1px red solid;
+        box-shadow: 0 0 14px #f0646b;
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin: 0 0 0 0;
+}
+
+.genres {
+    text-align: center;
+    font-size: 11px;
+    color: rgb(172, 169, 169);
+}
+
+.anotation {
+    opacity: 0;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 2;
+    color: rgb(230, 227, 227);
+    width: 170px;
+    height: 240px;
+    border-radius: 10px;
+    background-color: rgba(4, 4, 37, 0.774);
+    transition: 0.3s;
+    &:hover {
+        opacity: 1;
+    }
+}
+.raiting {
+    visibility: inherit;
+    color:rgb(212, 87, 41);
+    font-size: 48px;
+    font-weight: bold;
+    margin: 5px 1px 0 30px;
+}
+
+.container {
+    margin: 15px 0 0 2px;
+    width: 50px;
+    height: 50px;
+    background: url(../../public/pngegg.png) no-repeat;
+    background-size: 95%;
+}
+    
+.text {
+    font-size: 12px;
+    text-align: center;
+    color: rgb(194, 193, 193);
+    font-weight: bold;
+}
+.tag {
+    visibility: inherit;
+    color:rgb(228, 189, 175);
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+}
+
+
