@@ -1,11 +1,10 @@
-import { TMovieItem } from "../../types"
+import { useContext } from "react"
+import { dataContext } from "../../context/dataContext"
 
-type TMovie = {
-    movie: TMovieItem
-}
 
-export const MovieItemPage = ({movie}: TMovie) => {
-    const {title, tagline, poster_path, release_date, overview, budget} = movie;
+export const MovieItemPage = () => {
+    const context = useContext(dataContext);
+    const {title, tagline, poster_path, release_date, overview, budget} = context[0];
     return (
         <div>
             <div>
