@@ -1,0 +1,140 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 320px;
+    color: white;
+    background-image: url(../../public/sw.png);
+    background-size: 1000px 400px;
+    box-shadow: 7px -8px 3px 2px rgba(0, 1, 8, 0.2);
+}
+
+.header {
+    margin: 50px 0 5px;
+    font-size: 20px;
+}
+
+.input {
+    width: 800px;
+    height: 32px;
+    margin: 15px 0;
+    border: 2px solid #f32424;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(26, 26, 27, 0.3);
+    &:focus { 
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 18px #df6b71;
+    }
+    &::placeholder {
+        color: rgba(156, 153, 153, 0.979);
+        font-weight: bold;
+        background: url(../../public/search.png) no-repeat;
+        background-position: 770px -3.4px;
+        background-size: 2.8%;
+    }   
+}
+
+
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.filterButton {
+    width: 100px;
+    height: 25px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border:none;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+    background: none;
+    &:hover {
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 14px #f0646b;
+    }
+}
+
+.filter_active {
+    color:#e71e1e;
+    border: 1px solid #e71e1e;
+    &:hover {
+        outline: none;
+        border-color: #e71e1e;
+        box-shadow: 0 0 14px #f0646b;
+    }
+}
+
+.searchButton {
+    margin-left: 240px;
+    width: 150px;
+    height: 30px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(238, 24, 24);
+    &:hover {
+        background-color: rgba(10,20,100,0.1);
+        color:rgb(233, 8, 57);
+        outline: none;
+        border: 1px solid;
+        border-color: #e71e1e;
+        box-shadow: 0 0 16px #f0646b;
+    }
+}
+
+
+
+.statusSearch {
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(4, 13, 39, 0.322);
+}
+
+.sort {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.sortButton {
+    color: #faf4f4;
+    margin-top: 3px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}   
+
+.status_active {
+    color:red;
+}
+
+.foundMovies {
+    margin-right: 400px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
