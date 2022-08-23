@@ -1,10 +1,11 @@
 import { useContext } from "react"
-import { dataContext } from "../../context/dataContext"
+import { AppContext } from "../../context";
+
 
 
 export const MovieItemPage = () => {
-    const context = useContext(dataContext);
-    const {title, tagline, poster_path, release_date, overview, budget} = context[0];
+    const {movies} = useContext(AppContext);
+    const {title, tagline, poster_path, release_date, overview, budget} = movies[0];
     return (
         <div>
             <div>

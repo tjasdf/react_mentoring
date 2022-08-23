@@ -1,7 +1,8 @@
 import { useContext, useReducer } from 'react';
 import { clsx } from 'clsx';
+import { AppContext } from '../../context';
 import styles from './SearchContainer.module.scss';
-import { dataContext } from '../../context/dataContext';
+
 
 
 type TState = {
@@ -34,7 +35,7 @@ function reducer(state: TState, action: TAction) {
 }
 
 export const SearchContainer = () => {
-    const context = useContext(dataContext);
+    const {movies} = useContext(AppContext);
     const [state, dispatch] = useReducer(reducer, {active: true, release: true});
     const getFilterStyles = (status: boolean) =>  clsx(styles.filterButton, {[styles.filter_active]:status});
     const getStatusStyles = (status: boolean) => clsx(styles.sortButton, {[styles.status_active]:status});
@@ -52,7 +53,7 @@ export const SearchContainer = () => {
                 <button className={styles.searchButton}>Search</button>
             </div>
             <div className={styles.statusSearch}>
-                <span className={styles.foundMovies}>{context.length} movies found</span>
+                <span className={styles.foundMovies}>{movies.length} movies found</span>
                 <span className={styles.sort}>Sort by: </span>
                 <button onClick={()=> dispatch({type: 'release', payload:{release: false}})} className={getStatusStyles(state.release)}>release date</button>
                 <button onClick={()=> dispatch({type: 'release', payload:{release: true}})} className={getStatusStyles(!state.release)}>rating</button>

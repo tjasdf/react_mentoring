@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import { dataContext } from "../../context/dataContext";
+import { AppContext } from "../../context";
 import {MovieItem} from "../MovieItem";
 import styles from  './MovieList.module.scss'
 
 
 export const MovieList = () => {
-    const context = useContext(dataContext)
+    const {movies} = useContext(AppContext)
     return (
         <div className={styles.root}>
             {
-                context.map((movie) =>(
+                movies.map((movie) =>(
                     <MovieItem  {...movie}/>
                 ))
             }
