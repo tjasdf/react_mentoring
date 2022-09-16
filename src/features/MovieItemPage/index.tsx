@@ -1,11 +1,11 @@
-import { TMovieItem } from "../../types"
+import { useContext } from "react"
+import { AppContext } from "../../context";
 
-type TMovie = {
-    movie: TMovieItem
-}
 
-export const MovieItemPage = ({movie}: TMovie) => {
-    const {title, tagline, poster_path, release_date, overview, budget} = movie;
+
+export const MovieItemPage = () => {
+    const {movies} = useContext(AppContext);
+    const {title, tagline, poster_path, release_date, overview, budget} = movies[0];
     return (
         <div>
             <div>

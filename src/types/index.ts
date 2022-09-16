@@ -12,3 +12,6 @@ export type TMovieItem = {
     genres: string[]
 }
 
+export type TProps = {
+    movies: Array<TMovieItem>
+}
