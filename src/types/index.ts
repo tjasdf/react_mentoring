@@ -15,3 +15,8 @@ export type TMovieItem = {
 export type TProps = {
     movies: Array<TMovieItem>
 }
+
+export type TAction = {
+    type: string
+    payload: []
+}
