@@ -1,10 +1,9 @@
 import { useEffect, useReducer } from 'react';
 import { clsx } from 'clsx';
-import styles from './SearchContainer.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMovies, moviesFetched } from '../../redux';
-import {  TProps } from '../../types';
-
+import {  RootState, TMovieItem } from '../../types';
+import styles from './SearchContainer.module.scss';
 
 
 type TState = {
@@ -37,7 +36,7 @@ function reducer(state: TState, action: TAction) {
 }
 
 export const SearchContainer = () => {
-    const { movies } = useSelector(state=>state);
+    const movies = useSelector<RootState, Array<TMovieItem>>(state=>state.movies);
     const dispatchHook = useDispatch();
     useEffect(()=>{
         fetchMovies().then(data=>dispatchHook(moviesFetched(data)))

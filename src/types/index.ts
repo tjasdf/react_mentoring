@@ -1,3 +1,5 @@
+import { store } from "../redux"
+
 export type TMovieItem = { 
     id: number,
     title: string,
@@ -20,3 +22,5 @@ export type TAction = {
     type: string
     payload: []
 }
+
+export type RootState = ReturnType<typeof store.getState>
