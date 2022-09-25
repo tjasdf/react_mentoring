@@ -1,17 +1,12 @@
-import { createStore } from 'redux';
-import { TAction, TProps } from '../types';
+import {  TMovieItem } from '../types';
+import { configureStore, createReducer, createAction } from '@reduxjs/toolkit';
 
 const initialState = {
     movies: [],
     status: 'idle'
 }
 
-export const moviesFetched = (movies: TProps) => {
-    return {
-        type: 'INIT',
-        payload: movies
-    }
-}
+export const loadMovies = createAction('LOAD_ALL_MOVIES');
 
 export const fetchMovies = async () => {
     const response = await fetch('https://reactjs-cdp.herokuapp.com/movies')
@@ -19,17 +14,12 @@ export const fetchMovies = async () => {
     return movies.data
 }
 
-export const reducer = (state = initialState, action: TAction) => {
-    switch (action.type) {
-        case "INIT":
-            return {
-                ...state,
-                movies: action.payload
-            };
-        default:
-            return state;
-    }
-}
+export const movieReducer = createReducer(initialState,{
+    [loadMovies]:(state: { movies: TMovieItem; }, action: { payload: TMovieItem; })=>{state.movies = action.payload}
+})
 
-export const store = createStore(reducer);
+
+export const store = configureStore({
+    reducer: movieReducer
+});
 
