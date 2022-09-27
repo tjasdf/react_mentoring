@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { RootState, TMovieItem } from "../../types";
+import { RootState } from "../../types";
 
 
 
 export const MovieItemPage = () => {
-    const movies = useSelector<RootState, Array<TMovieItem>>( state=> state.movies);
+    const { movies } = useSelector( (state: RootState)=> state.movies);
     const {title, tagline, poster_path, release_date, overview, budget} = movies[0];
     return (
         <div>

@@ -6,7 +6,7 @@ import styles from  './MovieList.module.scss'
 
 
 export const MovieList = () => {
-    const movies = useSelector<RootState, Array<TMovieItem>>(state=>state.movies)
+    const {movies} = useSelector((state: RootState)=>state.movies)
     return (
         <div className={styles.root}>
             {
