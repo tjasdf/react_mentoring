@@ -1,9 +1,9 @@
-import { useContext, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { clsx } from 'clsx';
-import { AppContext } from '../../context';
+import { useSelector, useDispatch } from 'react-redux';
+import {  AppDispatch, RootState } from '../../types';
+import { getMovies } from '../../redux/actions';
 import styles from './SearchContainer.module.scss';
-
-
 
 type TState = {
     active: boolean,
@@ -35,7 +35,11 @@ function reducer(state: TState, action: TAction) {
 }
 
 export const SearchContainer = () => {
-    const {movies} = useContext(AppContext);
+    const {movies} = useSelector((state: RootState)=>state.movies);
+    const dispatchHook = useDispatch<AppDispatch>();
+    useEffect(()=>{
+        dispatchHook(getMovies())
+    },[])
     const [state, dispatch] = useReducer(reducer, {active: true, release: true});
     const getFilterStyles = (status: boolean) =>  clsx(styles.filterButton, {[styles.filter_active]:status});
     const getStatusStyles = (status: boolean) => clsx(styles.sortButton, {[styles.status_active]:status});

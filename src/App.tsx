@@ -1,21 +1,20 @@
 import {MovieList} from './features/MovieList';
 import {SearchContainer} from './features/SearchContainer';
 import { MovieItemPage } from './features/MovieItemPage';
-import { AppProvider } from './context';
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import styles from './App.module.scss';
-
 
 
 function App() {
   return (
-    <AppProvider>
+    <Provider store={store}>
       <div className={styles.root}>
         <SearchContainer/>
         <MovieList/>
         {/*<MovieItemPage/>*/}
       </div>
-    </AppProvider>
+    </Provider>
   );
 }
 

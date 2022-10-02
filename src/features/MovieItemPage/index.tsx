@@ -1,10 +1,10 @@
-import { useContext } from "react"
-import { AppContext } from "../../context";
+import { useSelector } from "react-redux";
+import { RootState } from "../../types";
 
 
 
 export const MovieItemPage = () => {
-    const {movies} = useContext(AppContext);
+    const { movies } = useSelector( (state: RootState)=> state.movies);
     const {title, tagline, poster_path, release_date, overview, budget} = movies[0];
     return (
         <div>
